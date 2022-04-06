@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Collatz Conjecture: Number Details
+{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1 class="title">Number Details</h1>
+</div>
+
+<div class="request">
+    <form method="post">
+        <label for="number-details">What number do you want details to?</label>
+        <input type="text" id="number-details" name="number-details" placeholder="Number">
+        <input type="submit" value="submit">
+    </form>
+</div>
+{% if deets != False %}
+<div>
+    <div>
+        <h4>{{ deets['number'] }}</h4>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Previous Number(s)</th>
+                    <th scope="col">Step Count to Loop</th>
+                    <th scope="col">Numbers with the Same Step Count</th>
+                    <th scope="col">Loop Asscociated</th>
+                    <th scope="col">Next Number</th>
+                    <th scope="col">Numbers to the Loop</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% if deets['previous_even'] != None and deets['previous_odd'] != None %}
+                    <td>{{ deets['previous_even'] }} and {{ deets['previous_odd'] }}</td>
+                    {% elif deets['previous_even'] != None %}
+                    <td>{{ deets['previous_even'] }}</td>
+                    {% elif deets['previous_odd'] %}
+                    <td>{{ deets['previous_odd'] }}</td>
+                    {% endif %}
+                    <td>{{ deets['count'] }}</td>
+                    <td>{% if x > 1 %}
+                        {% for i in deets['same_count'] %}
+                        {% if not loop.last %}
+                        {{i}},
+                        {% else %}
+                        and {{i}}
+                        {% endif %}
+                        {% endfor %}
+                        {% else %}
+                        {{ deets['same_count'][0] }}{% endif %}</td>
+                    <td>{{ deets['loop'] }}</td>
+                    <td>{{ deets['steps'][1] }}</td>
+                    <td>{{ deets['steps'][1:] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Collatz Conjecture: Trees
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1 class="title">Trees</h1>
+</div>
+
+<div class="request">
+    <div>
+        <form method="post">
+            <label for="highlighted-number">What number did you want to see highlighted?: </label>
+            <input type="text" id="highlighted-number" name="highlighted-number" placeholder="Enter a Number">
+            <select name="options" id="options">
+                <option value="whole_tree">Whole Tree</option>
+                <option value="equal_tree">Partial Tree with equal steps</option>
+                <option value="line_tree">Partial Tree without equal steps</option>
+            </select>
+            <select name="loop-options" id="loop-options">
+                <option value="1">1</option>
+            </select>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <p>or</p>
+    <div>
+        <form method="post">
+            <label for="steps-number">How many steps did you want to go back?</label>
+            <select name="steps-number" id="steps-number">
+                {% for o in selections %}
+                <option value="{{ o }}">{{ o }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</div>
+
+<div>
+
+    <img src="static/trees/{{ src }}">
+
+</div>
+
+
+{% endblock %}

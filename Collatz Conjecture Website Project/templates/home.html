@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Collatz Conjecture
+{% endblock %}
+
+{% block body %}
+
+
+<div id="titlediv">
+    <h1 class="title">Welcome to the Collatz Conjecture Website</h1>
+</div>
+<div id="home-container">
+    <div>
+        <h4>The Number of the Day is:</h4>
+        <h3 style="font-weight: bold;">{{ number_of_day }}</h3>
+        <div class="nodparent">
+            <div class="nodchild">
+                <p>Step Count: {{ count }}</p>
+            </div>
+            <div class="nodchild">
+                <p>Next Number: {{ next }}</p>
+            </div>
+            <div class="nodchild">
+                {% if loop == 1 %}
+                <p>Associated With Loop: {{ loop }} (unfortunately)</p>
+                {% else %}
+                <p>Associated With Loop: {{ loop }} (FINALLY!)</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="parent">
+        <div class="child">
+            <p>How Many Numbers We Found In Our Database: <strong>{{ found }}</strong></p>
+        </div>
+        <div class="child">
+            <p>How Many Numbers Are Missing From Our Database: <strong>{{ mia }}</strong></p>
+        </div>
+        <div class="child">
+            <p>Biggest Number In Our Database: <strong>{{ largest_number }}</strong></p>
+        </div>
+        <div class="child">
+            <p>Largest Amount Of Steps In Our Database: <strong>{{ largest_step }}</strong></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

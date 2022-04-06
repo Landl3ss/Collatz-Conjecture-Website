@@ -1,0 +1,102 @@
+/* -------------------- Google Fonts -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* -------------------- Tags -------------------- */
+
+li {
+    display: inline-block;
+}
+
+/* ul {
+    columns: 10;
+} */
+
+/* -------------------- Classes -------------------- */
+.child {
+    flex: 1;
+    padding: 5px;
+    width: 5%;
+}
+
+.nodchild {
+    flex: 1;
+}
+
+.nodparent {
+    display: flex;
+    margin-top: 10px;
+}
+
+.outer {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.parent {
+    display: flex;
+    padding: 10px;
+}
+
+.request {
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    position: relative;
+}
+
+.title {
+    font-family: 'Lobster', cursive;
+    font-size: 100px;
+}
+
+/* -------------------- Ids -------------------- */
+#brand {
+    font-family: 'Lobster', cursive;
+}
+
+#chart {
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+#divlist {
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: justify;
+}
+
+#explanation {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+#home-container {
+    border: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#list {
+    list-style-type: none;
+}
+
+#myChart {
+    background: #ffffff;
+}
+
+#titlediv {
+    border: 5px;
+    margin-top: 100px;
+    text-align: center;
+    /* padding-right: 18%; */
+}
+
+/* -------------------- Comments -------------------- */
+/* #1da8f5  a cool looking blue
+#116466 greenish blue
+#2c3531 dark gray
+#d9b08c dark beige
+#ffcb9a lighter beige
+#d1e8e2 lighter light green */

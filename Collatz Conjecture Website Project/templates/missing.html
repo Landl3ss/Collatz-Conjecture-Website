@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Collatz Conjecture: Missing Numbers
+{% endblock %}
+
+{% block body %}
+<div id="explanation">
+    <h3 class="title">What's missing?</h3>
+    <br>
+    <h4>Here is a list of missing numbers in our database:</h4>
+    <p>(What do we mean that we are missing numbers? Our database goes through a number at a time, and sometimes those numbers go to numbers that we have not reached yet. When an odd number is used it is multiplied by 3 then added by 1 which would give us a bigger number that is not in the order of which we go through in order.)</p>
+    <p>(Clearly there are numbers beyond the numbers the highest number in our database. We are talking about the numbers inbetween 1 and our largest number ({{ largest }}) in our Database. Also the more numbers we add into our Database the more numbers we will be missing.)</p>
+</div>
+<div id="divlist">
+    <ul id="list">
+    {% for i in numbers %}
+    {% if not loop.last %}
+        <li><strong>{{i}}</strong>,</li>
+    {% else %}
+        <li><strong>{{i}}</strong></li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

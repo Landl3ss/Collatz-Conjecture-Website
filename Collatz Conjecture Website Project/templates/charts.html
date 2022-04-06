@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Collatz Conjecture: Chart
+{% endblock %}
+
+{% block body %}
+<div style="text-align: center; margin-top: 5%;">
+  <h3 class="title">Charts</h3>
+</div>
+<br>
+<div>
+  <div id="chart">
+      <canvas id="myChart"></canvas>
+  </div>
+
+  <div class="request">
+    <form method="post">
+        <label for="graphlookup">Is there a number you would want to look up in our Database (1 thru {{ nod }}):</label>
+        <input type="text" id="graphlookup" name="graphlookup" placeholder="Number">
+        <input type="submit" value="submit">
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const labels = {{ x_axis|safe }}
+
+  const data = {
+    labels: labels,
+    datasets: [
+
+      {% for i in lines %}
+      {
+      borderColor: "{{lines[i]['color']}}",
+      backgroundColor: "{{lines[i]['color']}}",
+      data: {{ lines[i]['line'] }},
+    },
+
+    {% endfor %}
+]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            grid: {
+              display: false
+            }
+          }
+      }
+    }
+  };
+</script>
+
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+
+{% endblock %}
